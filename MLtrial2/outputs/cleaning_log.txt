@@ -1,0 +1,34 @@
+Loaded 79,330 rows.
+Removed 25,902 exact duplicate rows -> 53,428 rows.
+--- TRAIN ---
+Start (train): 42742 rows, 32 columns
+Trimmed spaces in 14 text columns.
+Children: 2 placeholder value(s) set to missing.
+Country: 5 placeholder value(s) set to missing.
+Agent: 4464 placeholder value(s) set to missing.
+Company: 40527 placeholder value(s) set to missing.
+Children: missing filled with 0 and converted to integer.
+Removed 122 training rows with no guests at all.
+MarketSegment: 2 missing/Undefined value(s) replaced by the training mode 'Online TA'.
+DistributionChannel: 2 missing/Undefined value(s) replaced by the training mode 'TA/TO'.
+Country: 3 missing/Undefined value(s) replaced by the training mode 'PRT'.
+Agent missing -> 'No Agent'; HasCompany flag created from Company.
+Created TotalNights and TotalGuests.
+Dropped columns: ['Company', 'Babies', 'ReservationStatus', 'ReservationStatusDate', 'AssignedRoomType', 'BookingChanges', 'DaysInWaitingList', 'ADR', 'RequiredCarParkingSpaces', 'TotalOfSpecialRequests'].
+End: 42620 rows, 25 columns
+--- TEST ---
+Start (validation/test): 10686 rows, 32 columns
+Trimmed spaces in 14 text columns.
+Children: 2 placeholder value(s) set to missing.
+Country: 1 placeholder value(s) set to missing.
+Agent: 1123 placeholder value(s) set to missing.
+Company: 10119 placeholder value(s) set to missing.
+Children: missing filled with 0 and converted to integer.
+No rows removed. This file has 32 rows with no guests at all.
+MarketSegment: 0 missing/Undefined value(s) replaced by the training mode 'Online TA'.
+DistributionChannel: 2 missing/Undefined value(s) replaced by the training mode 'TA/TO'.
+Country: 1 missing/Undefined value(s) replaced by the training mode 'PRT'.
+Agent missing -> 'No Agent'; HasCompany flag created from Company.
+Created TotalNights and TotalGuests.
+Dropped columns: ['Company', 'Babies', 'ReservationStatus', 'ReservationStatusDate', 'AssignedRoomType', 'BookingChanges', 'DaysInWaitingList', 'ADR', 'RequiredCarParkingSpaces', 'TotalOfSpecialRequests'].
+End: 10686 rows, 25 columns
