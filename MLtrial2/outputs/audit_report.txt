@@ -1,0 +1,377 @@
+
+======================================================================
+1. STRUCTURE
+======================================================================
+Shape (without RowID): (79330, 31)
+Missing expected columns: []
+Unexpected columns: []
+
+Data types:
+RowID                            int64
+IsCanceled                       int64
+LeadTime                         int64
+ArrivalDateYear                  int64
+ArrivalDateMonth                   str
+ArrivalDateWeekNumber            int64
+ArrivalDateDayOfMonth            int64
+StaysInWeekendNights             int64
+StaysInWeekNights                int64
+Adults                           int64
+Children                           str
+Babies                           int64
+Meal                               str
+Country                            str
+MarketSegment                      str
+DistributionChannel                str
+IsRepeatedGuest                  int64
+PreviousCancellations            int64
+PreviousBookingsNotCanceled      int64
+ReservedRoomType                   str
+AssignedRoomType                   str
+BookingChanges                   int64
+DepositType                        str
+Agent                              str
+Company                            str
+DaysInWaitingList                int64
+CustomerType                       str
+ADR                            float64
+RequiredCarParkingSpaces         int64
+TotalOfSpecialRequests           int64
+ReservationStatus                  str
+ReservationStatusDate              str
+dtype: object
+
+First five rows:
+   RowID  IsCanceled  LeadTime  ArrivalDateYear ArrivalDateMonth  ArrivalDateWeekNumber  ArrivalDateDayOfMonth  StaysInWeekendNights  StaysInWeekNights  Adults Children  Babies       Meal Country  \
+0      0           0         6             2015             July                     27                      1                     0                  2       1        0       0  HB            PRT   
+1      1           1        88             2015             July                     27                      1                     0                  4       2        0       0  BB            PRT   
+2      2           1        65             2015             July                     27                      1                     0                  4       1        0       0  BB            PRT   
+3      3           1        92             2015             July                     27                      1                     2                  4       2        0       0  BB            PRT   
+4      4           1       100             2015             July                     27                      2                     0                  2       2        0       0  BB            PRT   
+
+   MarketSegment DistributionChannel  IsRepeatedGuest  PreviousCancellations  PreviousBookingsNotCanceled  ReservedRoomType  AssignedRoomType  BookingChanges      DepositType        Agent  \
+0  Offline TA/TO               TA/TO                0                      0                            0  A                 A                              0  No Deposit                 6   
+1      Online TA               TA/TO                0                      0                            0  A                 A                              0  No Deposit                 9   
+2      Online TA               TA/TO                0                      0                            0  A                 A                              0  No Deposit                 9   
+3      Online TA               TA/TO                0                      0                            0  A                 A                              0  No Deposit                 9   
+4      Online TA               TA/TO                0                      0                            0  A                 A                              0  No Deposit                 9   
+
+       Company  DaysInWaitingList CustomerType   ADR  RequiredCarParkingSpaces  TotalOfSpecialRequests ReservationStatus ReservationStatusDate  
+0         NULL                  0    Transient   0.0                         0                       0         Check-Out            2015-07-03  
+1         NULL                  0    Transient  76.5                         0                       1          Canceled            2015-07-01  
+2         NULL                  0    Transient  68.0                         0                       1          Canceled            2015-04-30  
+3         NULL                  0    Transient  76.5                         0                       2          Canceled            2015-06-23  
+4         NULL                  0    Transient  76.5                         0                       1          Canceled            2015-04-02  
+
+Values with leading/trailing spaces: {'Meal': 79330, 'ReservedRoomType': 79330, 'AssignedRoomType': 79330, 'DepositType': 79330, 'Agent': 79330, 'Company': 79330}
+
+======================================================================
+2. MISSING VALUES AND HIDDEN PLACEHOLDERS
+======================================================================
+          Actual_Missing  Blank_Strings  Hidden_Null_Tokens  Total_Suspicious  Percent
+Company                0              0               75641             75641    95.35
+Agent                  0              0                8131              8131    10.25
+Country                0              0                  24                24     0.03
+Children               0              0                   4                 4     0.01
+
+======================================================================
+3. CATEGORICAL COLUMNS
+======================================================================
+
+ArrivalDateMonth: 12 distinct (+0 missing)
+ArrivalDateMonth
+August     8983
+May        8232
+July       8088
+June       7894
+October    7605
+April      7480
+
+Meal: 4 distinct (+0 missing)
+Meal
+BB    62305
+SC    10564
+HB     6417
+FB       44
+
+Country: 166 distinct (+24 missing)
+Country
+PRT    30960
+FRA     8804
+DEU     6084
+GBR     5315
+ESP     4611
+ITA     3307
+
+MarketSegment: 8 distinct (+0 missing)
+MarketSegment
+Online TA        38748
+Offline TA/TO    16747
+Groups           13975
+Direct            6093
+Corporate         2986
+Complementary      542
+
+DistributionChannel: 5 distinct (+0 missing)
+DistributionChannel
+TA/TO        68945
+Direct        6780
+Corporate     3408
+GDS            193
+Undefined        4
+
+ReservedRoomType: 8 distinct (+0 missing)
+ReservedRoomType
+A    62595
+D    11768
+F     1791
+E     1553
+B     1115
+G      484
+
+AssignedRoomType: 9 distinct (+0 missing)
+AssignedRoomType
+A    57007
+D    14983
+E     2168
+F     2018
+B     2004
+G      700
+
+DepositType: 3 distinct (+0 missing)
+DepositType
+No Deposit    66442
+Non Refund    12868
+Refundable       20
+
+Agent: 223 distinct (+8131 missing)
+Agent
+9       31955
+<NA>     8131
+1        7137
+14       3640
+7        3539
+6        2683
+
+Company: 207 distinct (+75641 missing)
+Company
+<NA>    75641
+40        924
+67        267
+45        250
+153       215
+219       141
+
+CustomerType: 4 distinct (+0 missing)
+CustomerType
+Transient          59404
+Transient-Party    17333
+Contract            2300
+Group                293
+
+ReservationStatus: 3 distinct (+0 missing)
+ReservationStatus
+Check-Out    46228
+Canceled     32186
+No-Show        916
+
+======================================================================
+4. TARGET (IsCanceled)
+======================================================================
+Invalid (not 0/1): 0
+             rows  percent
+IsCanceled                
+0           46228    58.27
+1           33102    41.73
+
+Cancel rate by arrival year:
+                  size   mean
+ArrivalDateYear              
+2015             13682  0.439
+2016             38140  0.404
+2017             27508  0.425
+
+Cancel rate by arrival month:
+                  size   mean
+ArrivalDateMonth             
+January           3736  0.397
+February          4965  0.383
+March             6458  0.369
+April             7480  0.463
+May               8232  0.444
+June              7894  0.447
+July              8088  0.409
+August            8983  0.401
+September         7400  0.420
+October           7605  0.430
+November          4357  0.381
+December          4132  0.421
+
+======================================================================
+5. DUPLICATES
+======================================================================
+Extra duplicate copies: 25902 (32.7%)
+Rows inside a duplicate group: 31748
+Rows left if every extra copy is removed: 53428
+
+Cancel rate inside vs outside duplicate groups:
+                     size   mean
+not duplicated      47582  0.287
+in duplicate group  31748  0.613
+
+Overall cancel rate WITH duplicates: 0.4173 | WITHOUT extra copies: 0.3004
+
+Five biggest groups of identical rows (rows each): [180, 150, 109, 101, 100]
+
+======================================================================
+6. TWINS: identical on every booking-time feature
+======================================================================
+Groups: 50373
+Rows in groups with 2+ rows: 35689
+Groups with conflicting labels: 398 covering 2862 rows
+
+======================================================================
+7. GUESTS
+======================================================================
+                        check  rows  cancel_rate
+                  zero guests   167        0.138
+      no adults (adults == 0)   390        0.274
+children/babies but no adults   223        0.377
+         negative guest count     0          NaN
+
+======================================================================
+8. NIGHTS AND ADR
+======================================================================
+                   check  rows  cancel_rate
+       zero total nights   331        0.069
+                ADR == 0  1208        0.107
+                 ADR < 0     0          NaN
+              ADR > 1000     1        1.000
+zero nights AND ADR == 0   331        0.069
+
+======================================================================
+9. NUMERIC COLUMNS: range, skew, outliers
+======================================================================
+                     column  min  median    max  skew  negatives  IQR_outliers
+                   LeadTime  0.0    74.0  629.0   1.4          0          2576
+       StaysInWeekendNights  0.0     1.0   16.0   1.1          0            82
+          StaysInWeekNights  0.0     2.0   41.0   3.0          0           719
+                     Adults  0.0     2.0    4.0  -0.4          0         21075
+                   Children  0.0     0.0    3.0   4.3          0          5106
+                     Babies  0.0     0.0   10.0  44.8          0           369
+      PreviousCancellations  0.0     0.0   21.0  16.6          0          5389
+PreviousBookingsNotCanceled  0.0     0.0   72.0  23.1          0          1588
+             BookingChanges  0.0     0.0   21.0   7.2          0         10268
+          DaysInWaitingList  0.0     0.0  391.0  10.3          0          3443
+   RequiredCarParkingSpaces  0.0     0.0    3.0   6.3          0          1926
+     TotalOfSpecialRequests  0.0     0.0    5.0   1.4          0          1811
+                        ADR  0.0    99.9 5400.0  23.2          0          3387
+
+Unparseable ReservationStatusDate: 0
+
+======================================================================
+10. WHAT RELATES TO THE TARGET
+======================================================================
+
+Cancel rate by MarketSegment:
+MarketSegment  Aviation  Complementary  Corporate    Direct     Groups  Offline TA/TO  Online TA  Undefined
+size            237.000        542.000   2986.000  6093.000  13975.000      16747.000  38748.000        2.0
+mean              0.219          0.118      0.215     0.173      0.689          0.428      0.374        1.0
+
+Cancel rate by DistributionChannel:
+DistributionChannel  Corporate    Direct      GDS     TA/TO  Undefined
+size                  3408.000  6780.000  193.000  68945.00        4.0
+mean                     0.231     0.182    0.192      0.45        1.0
+
+Cancel rate by DepositType:
+DepositType  No Deposit  Non Refund  Refundable
+size          66442.000   12868.000        20.0
+mean              0.305       0.998         0.7
+
+Cancel rate by CustomerType:
+CustomerType  Contract    Group  Transient  Transient-Party
+size           2300.00  293.000  59404.000        17333.000
+mean              0.48    0.099      0.456            0.281
+
+Cancel rate by Meal:
+Meal         BB      FB       HB         SC
+size  62305.000  44.000  6417.00  10564.000
+mean      0.428   0.795     0.38      0.375
+
+Cancel rate by ReservedRoomType:
+ReservedRoomType          A        B       C          D         E         F        G     P
+size              62595.000  1115.00  14.000  11768.000  1553.000  1791.000  484.000  10.0
+mean                  0.435     0.33   0.357      0.352     0.325     0.391    0.246   1.0
+
+Cancel rate by IsRepeatedGuest:
+IsRepeatedGuest          0         1
+size             77298.000  2032.000
+mean                 0.423     0.217
+
+Cancel rate, 8 most frequent Country values:
+Country        PRT       FRA       DEU       GBR       ESP       ITA       BEL       BRA
+size     30960.000  8804.000  6084.000  5315.000  4611.000  3307.000  1894.000  1794.000
+mean         0.649     0.196     0.176     0.294     0.288     0.379     0.219     0.406
+
+Cancel rate, 8 most frequent Agent values:
+Agent          9         1        14         7        6        28         3         8
+size   31955.000  7137.000  3640.000  3539.000  2683.00  1666.000  1308.000  1236.000
+mean       0.415     0.733     0.179     0.134     0.36     0.066     0.586     0.314
+
+Cancel rate by LeadTime bin:
+LeadTime    (-1, 7]    (7, 30]   (30, 90]  (90, 180]  (180, 365]  (365, 1000]
+size      10808.000  12554.000  20797.000   18223.00   14244.000     2704.000
+mean          0.122      0.309      0.399       0.48       0.627        0.711
+
+Spearman correlation with the target:
+TotalOfSpecialRequests        -0.324
+BookingChanges                -0.196
+RequiredCarParkingSpaces      -0.133
+PreviousBookingsNotCanceled   -0.099
+IsRepeatedGuest               -0.066
+Babies                        -0.034
+Children                      -0.033
+ADR                           -0.031
+StaysInWeekendNights          -0.018
+StaysInWeekNights              0.046
+Adults                         0.056
+DaysInWaitingList              0.112
+PreviousCancellations          0.280
+LeadTime                       0.325
+
+======================================================================
+11. LEAKAGE EVIDENCE
+======================================================================
+ReservationStatus vs IsCanceled:
+IsCanceled             0      1
+ReservationStatus              
+Canceled               0  32186
+Check-Out          46228      0
+No-Show                0    916
+
+Days between arrival date and ReservationStatusDate, by status:
+                     count  mean   std    min    25%   50%   75%   max
+ReservationStatus                                                     
+Canceled           32186.0 -91.8  94.3 -526.0 -137.0 -58.0 -20.0   0.0
+Check-Out          46228.0   2.9   1.8    0.0    2.0   3.0   4.0  57.0
+No-Show              916.0   0.0   0.0    0.0    0.0   0.0   0.0   0.0
+
+Post-booking columns:
+                               check  rows  cancel_if_true  cancel_if_false
+AssignedRoomType != ReservedRoomType  7192           0.058            0.453
+                  BookingChanges > 0 10268           0.164            0.455
+               DaysInWaitingList > 0  3443           0.680            0.405
+        RequiredCarParkingSpaces > 0  1926           0.000            0.428
+          TotalOfSpecialRequests > 0 31373           0.216            0.549
+                            ADR == 0  1208           0.107            0.422
+
+======================================================================
+12. IS 'MISSING' INFORMATIVE?
+======================================================================
+                          column  missing_rows  cancel_if_missing  cancel_if_present
+                        Children             4              1.000              0.417
+                         Country            24              0.917              0.417
+                           Agent          8131              0.321              0.428
+                         Company         75641              0.427              0.213
+      MarketSegment == Undefined             2              1.000              0.417
+DistributionChannel == Undefined             4              1.000              0.417
